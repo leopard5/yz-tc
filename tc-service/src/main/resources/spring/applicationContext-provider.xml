@@ -5,7 +5,7 @@
     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
     http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
-<!-- 	<bean id="invokeLogger" class="com.yz.demo.dubbo.InvokeLogger"></bean> -->
+<!-- 	<bean id="invokeLogger" class="InvokeLogger"></bean> -->
   
     <dubbo:monitor protocol="registry" />
 

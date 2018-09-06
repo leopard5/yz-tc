@@ -3,13 +3,19 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.15.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
     <groupId>com.yz</groupId>
     <artifactId>tc-all</artifactId>
     <version>1.0.0.RELEASE</version>
     <packaging>pom</packaging>
 
     <properties>
-        <!-- projcet setting -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
@@ -20,15 +26,13 @@
         <com.fasterxml.jackson>2.6.5</com.fasterxml.jackson>
         <org.thymeleaf>2.1.4.RELEASE</org.thymeleaf>
 
-        <api.version>1.2.2.RELEASE</api.version>
-        <dal.version>1.0.0.SNAPSHOT</dal.version>
-        <core.version>1.0.0.SNAPSHOT</core.version>
-        <biz.version>1.0.0.SNAPSHOT</biz.version>
+        <contract.version>1.0.0.RELEASE</contract.version>
+        <dao.version>1.0.0.SNAPSHOT</dao.version>
+        <manager.version>1.0.0.SNAPSHOT</manager.version>
         <service.version>1.0.0.SNAPSHOT</service.version>
         <web.version>1.0.0.SNAPSHOT</web.version>
 
     </properties>
-
 
     <dependencyManagement>
         <dependencies>
@@ -39,12 +43,6 @@
                 <version>3.1.0</version>
                 <scope>provided</scope>
 
-            </dependency>
-            <dependency>
-                <groupId>javax.servlet.jsp</groupId>
-                <artifactId>javax.servlet.jsp-api</artifactId>
-                <version>2.3.1</version>
-                <scope>provided</scope>
             </dependency>
             <!-- spring -->
             <dependency>
@@ -258,46 +256,6 @@
                 <version>4.12</version>
                 <scope>test</scope>
             </dependency>
-            <dependency>
-                <groupId>org.mockito</groupId>
-                <artifactId>mockito-all</artifactId>
-                <version>1.10.19</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.skyscreamer</groupId>
-                <artifactId>jsonassert</artifactId>
-                <version>1.3.0</version>
-                <scope>test</scope>
-            </dependency>
-            <!--httpcomponent-->
-            <dependency>
-                <groupId>org.apache.httpcomponents</groupId>
-                <artifactId>httpclient</artifactId>
-                <version>${org.apache.httpcomponents}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.httpcomponents</groupId>
-                <artifactId>httpcore</artifactId>
-                <version>${org.apache.httpcomponents}</version>
-            </dependency>
-            <!--fastdfs-->
-            <dependency>
-                <groupId>org.csource</groupId>
-                <artifactId>fastdfs-client-java</artifactId>
-                <version>1.25</version>
-            </dependency>
-            <!--jackson-->
-            <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-databind</artifactId>
-                <version>${com.fasterxml.jackson}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.fasterxml.jackson.dataformat</groupId>
-                <artifactId>jackson-dataformat-xml</artifactId>
-                <version>${com.fasterxml.jackson}</version>
-            </dependency>
             <!-- mybatis -->
             <dependency>
                 <groupId>org.mybatis</groupId>
@@ -346,27 +304,6 @@
                 <artifactId>commons-collections4</artifactId>
                 <version>4.1</version>
             </dependency>
-            <!--内部框架-->
-            <dependency>
-                <groupId>com.chinaredstar</groupId>
-                <artifactId>perseus</artifactId>
-                <version>1.2.0</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.data</groupId>
-                <artifactId>spring-data-mongodb</artifactId>
-                <version>1.9.2.RELEASE</version>
-            </dependency>
-            <dependency>
-                <groupId>org.mongodb</groupId>
-                <artifactId>mongo-java-driver</artifactId>
-                <version>3.2.2</version>
-            </dependency>
-            <dependency>
-                <groupId>cglib</groupId>
-                <artifactId>cglib</artifactId>
-                <version>3.2.4</version>
-            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -386,27 +323,27 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.7</version>
-                <executions>
-                    <execution>
-                        <id>attach-javadocs</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+            <!--<plugin>-->
+            <!--<groupId>org.apache.maven.plugins</groupId>-->
+            <!--<artifactId>maven-javadoc-plugin</artifactId>-->
+            <!--<version>2.7</version>-->
+            <!--<executions>-->
+            <!--<execution>-->
+            <!--<id>attach-javadocs</id>-->
+            <!--<goals>-->
+            <!--<goal>jar</goal>-->
+            <!--</goals>-->
+            <!--</execution>-->
+            <!--</executions>-->
+            <!--</plugin>-->
             <!-- 指定maven编译的jdk版本 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.3</version>
                 <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
@@ -414,12 +351,11 @@
     </build>
 
     <modules>
-        <module>demo-api</module>
-        <module>demo-core</module>
-        <module>demo-dal</module>
-        <module>demo-biz</module>
-        <module>demo-service</module>
-        <module>demo-web</module>
+        <module>tc-contract</module>
+        <module>tc-dao</module>
+        <module>tc-manager</module>
+        <module>tc-service</module>
+        <module>tc-web</module>
     </modules>
 
 </project>

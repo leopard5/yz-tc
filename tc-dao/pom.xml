@@ -7,10 +7,15 @@
         <version>1.0.0.RELEASE</version>
 	</parent>
 	
-	<artifactId>tc-dal</artifactId>
-	<version>${dal.version}</version>
+	<artifactId>tc-dao</artifactId>
+	<version>${dao.version}</version>
 	
 	 <dependencies>
+         <dependency>
+             <groupId>com.yz</groupId>
+             <artifactId>tc-contract</artifactId>
+             <version>${contract.version}</version>
+         </dependency>
         <!-- mybatis -->
         <dependency>
             <groupId>org.mybatis</groupId>
@@ -29,11 +34,6 @@
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
         <dependency>
-			<groupId>com.chinaredstar</groupId>
-			<artifactId>p-trade-oc-api</artifactId>
-			<version>1.4.1.RELEASE</version>
-		</dependency>
-        <dependency>
 		    <groupId>com.github.pagehelper</groupId>
 		    <artifactId>pagehelper</artifactId>
 		    <version>4.1.6</version>
@@ -48,21 +48,6 @@
 			<groupId>com.alibaba</groupId>
 			<artifactId>druid</artifactId>
 			<version>1.0.16</version>
-		</dependency>
-		
-		<dependency>
-			<groupId>com.chinaredstar</groupId>
-			<artifactId>perseus</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.yz</groupId>
-			<artifactId>demo-core</artifactId>
-			<version>${core.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.yz</groupId>
-    		<artifactId>demo-api</artifactId>
-			<version>${api.version}</version>
 		</dependency>
     </dependencies>
     
