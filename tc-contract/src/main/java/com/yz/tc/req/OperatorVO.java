@@ -11,6 +11,10 @@ public class OperatorVO implements Serializable {
     private String operator;
     private String operatorName;
 
+    public OperatorVO(){
+
+    }
+
     public OperatorVO(Long idKey, String ownerId, Byte ownerType, String operator, String operatorName) {
         this.idKey = idKey;
         this.ownerId = ownerId;

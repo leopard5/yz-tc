@@ -3,7 +3,7 @@ package com.yz.tc.model;
 import java.io.Serializable;
 import java.util.List;
 
-public class QueryResult<E> implements Serializable {
+public class PageResult<E> implements Serializable {
     private static final long serialVersionUID = 8189778548880809030L;
 
     /**

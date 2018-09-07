@@ -2,7 +2,7 @@ package com.yz.tc.model.base;
 
 import java.io.Serializable;
 
-public class Query implements Serializable {
+public class Page implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
