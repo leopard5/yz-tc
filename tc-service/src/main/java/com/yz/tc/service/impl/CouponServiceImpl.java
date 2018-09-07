@@ -3,12 +3,12 @@ package com.yz.tc.service.impl;
 import com.yz.tc.biz.CouponBiz;
 import com.yz.tc.convertor.CouponConvertor;
 import com.yz.tc.model.Coupon;
-import com.yz.tc.req.CouponQueryVO;
+import com.yz.tc.req.CouponPageVO;
 import com.yz.tc.req.CouponVO;
 import com.yz.tc.req.OperatorVO;
 import com.yz.tc.resp.CouponDTO;
-import com.yz.tc.resp.KXResult;
-import com.yz.tc.resp.QueryResult;
+import com.yz.tc.resp.TCResult;
+import com.yz.tc.resp.PageBase;
 import com.yz.tc.resp.TCResultCode;
 import com.yz.tc.service.ICouponService;
 import com.yz.tc.validate.CouponValidate;
@@ -36,8 +36,8 @@ public class CouponServiceImpl implements ICouponService {
      * @Version: <1.0>
      */
     @Override
-    public KXResult<Integer> deleteCoupon(OperatorVO vo) {
-        KXResult<Integer> result = KXResult.newSuccess();
+    public TCResult<Integer> deleteCoupon(OperatorVO vo) {
+        TCResult<Integer> result = TCResult.newSuccess();
 
         if (isNull(result, "优惠券ID", vo.getIdKey())) {
             return result;
@@ -59,8 +59,8 @@ public class CouponServiceImpl implements ICouponService {
      * @Version: <1.0>
      */
     @Override
-    public KXResult<Integer> createCoupon(CouponVO couponReq) {
-        KXResult<Integer> result = KXResult.newSuccess();
+    public TCResult<Integer> createCoupon(CouponVO couponReq) {
+        TCResult<Integer> result = TCResult.newSuccess();
 
         Coupon coupon = CouponConvertor.toCoupon(couponReq);
         if (!CouponValidate.validateForCreate(coupon, result, false)) {
@@ -80,8 +80,8 @@ public class CouponServiceImpl implements ICouponService {
      * @Version: <1.0>
      */
     @Override
-    public KXResult<Integer> updateCoupon(CouponVO vo) {
-        KXResult<Integer> result = KXResult.newSuccess();
+    public TCResult<Integer> updateCoupon(CouponVO vo) {
+        TCResult<Integer> result = TCResult.newSuccess();
 
         Coupon coupon = CouponConvertor.toCoupon(vo);
         if (!CouponValidate.validateForUpdate(coupon, result)) {
@@ -100,9 +100,9 @@ public class CouponServiceImpl implements ICouponService {
      * @Version: <1.0>
      */
     @Override
-    public KXResult<QueryResult<CouponDTO>> queryCoupon(CouponQueryVO couponQueryReq) {
-        KXResult<QueryResult<CouponDTO>> result = KXResult.newSuccess();
-        QueryResult<Coupon> resultInfo = couponBiz.queryCoupon(couponQueryReq);
+    public TCResult<PageBase<CouponDTO>> queryCoupon(CouponPageVO couponQueryReq) {
+        TCResult<PageBase<CouponDTO>> result = TCResult.newSuccess();
+        PageBase<Coupon> resultInfo = couponBiz.queryCoupon(couponQueryReq);
         result.setDataMap(CouponConvertor.toQueryResultInfo(resultInfo));
         return result;
     }

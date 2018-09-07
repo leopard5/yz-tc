@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
-public class CouponQueryVO extends QueryVO {
+public class CouponPageVO extends PageBaseVO {
 
     /**
      * @Fields serialVersionUID : 序列化版本号

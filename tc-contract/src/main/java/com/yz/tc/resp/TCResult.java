@@ -1,13 +1,12 @@
 package com.yz.tc.resp;
 
-
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 import java.io.Serializable;
 
 @ApiModel(value = "Rest result", description = "请求结果")
-public class KXResult<T> implements Serializable {
+public class TCResult<T> implements Serializable {
     private static final long serialVersionUID = -4696898674758059398L;
 
     @ApiModelProperty(value = "结果代码")
@@ -19,7 +18,7 @@ public class KXResult<T> implements Serializable {
     @ApiModelProperty(value = "操作标识")
     private boolean success;
 
-    public KXResult(String code, String message, boolean success, T dataMap) {
+    public TCResult(String code, String message, boolean success, T dataMap) {
         this.setCode(code);
         this.setMessage(message);
         this.setSuccess(success);
@@ -34,8 +33,8 @@ public class KXResult<T> implements Serializable {
      * @param value
      * @return
      */
-    public static <T> KXResult<T> newInstance(TCResultCode resultCode, boolean success, T value) {
-        return new KXResult<T>(resultCode.code, resultCode.message, success, value);
+    public static <T> TCResult<T> newInstance(TCResultCode resultCode, boolean success, T value) {
+        return new TCResult<T>(resultCode.code, resultCode.message, success, value);
     }
 
     /**
@@ -43,8 +42,8 @@ public class KXResult<T> implements Serializable {
      *
      * @return
      */
-    public static <T> KXResult<T> newSuccess() {
-        return new KXResult<T>(TCResultCode.SUCCESS.code,
+    public static <T> TCResult<T> newSuccess() {
+        return new TCResult<T>(TCResultCode.SUCCESS.code,
                 TCResultCode.SUCCESS.message, true, null);
     }
 
@@ -53,8 +52,8 @@ public class KXResult<T> implements Serializable {
      *
      * @return
      */
-    public static <T> KXResult<T> newSuccess(T value) {
-        return new KXResult<T>(TCResultCode.SUCCESS.code,
+    public static <T> TCResult<T> newSuccess(T value) {
+        return new TCResult<T>(TCResultCode.SUCCESS.code,
                 TCResultCode.SUCCESS.message, true, value);
     }
 
@@ -64,12 +63,12 @@ public class KXResult<T> implements Serializable {
      * @param errorCode
      * @return
      */
-    public static <T> KXResult<T> newError(TCResultCode errorCode) {
-        return new KXResult<T>(errorCode.code, errorCode.message, false, null);
+    public static <T> TCResult<T> newError(TCResultCode errorCode) {
+        return new TCResult<T>(errorCode.code, errorCode.message, false, null);
     }
 
-    public static <T> KXResult<T> buildError(TCResultCode resultCode, Object... args) {
-        KXResult<T> r = new KXResult<T>("", "", false, null);
+    public static <T> TCResult<T> buildError(TCResultCode resultCode, Object... args) {
+        TCResult<T> r = new TCResult<T>("", "", false, null);
         r.setCode(resultCode.getCode());
         r.setFormatMessage(resultCode.getMessage(), args);
 
@@ -81,7 +80,7 @@ public class KXResult<T> implements Serializable {
      *
      * @param errorCode
      */
-    public KXResult<T> setErrorCode(TCResultCode errorCode) {
+    public TCResult<T> setErrorCode(TCResultCode errorCode) {
         if (errorCode == null) {
             return null;
         }
@@ -99,7 +98,7 @@ public class KXResult<T> implements Serializable {
      * @param args
      * @return
      */
-    public KXResult<T> setErrorCode(TCResultCode errorCode, Object... args) {
+    public TCResult<T> setErrorCode(TCResultCode errorCode, Object... args) {
         if (errorCode == null) {
             return null;
         }

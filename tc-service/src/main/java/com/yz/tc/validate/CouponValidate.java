@@ -1,7 +1,7 @@
 package com.yz.tc.validate;
 
 import com.yz.tc.model.Coupon;
-import com.yz.tc.resp.KXResult;
+import com.yz.tc.resp.TCResult;
 import com.yz.tc.resp.TCResultCode;
 
 import java.util.Date;
@@ -10,7 +10,7 @@ import static com.yz.tc.util.ValidationUtil.*;
 
 public class CouponValidate {
 
-    public static boolean validateForCreate(Coupon coupon, KXResult<?> message, boolean isUpdateFlag) {
+    public static boolean validateForCreate(Coupon coupon, TCResult<?> message, boolean isUpdateFlag) {
 
         if (isNull(message, Coupon.OWNER_TYPE, coupon.getOwnerType())) {
             return false;
@@ -112,7 +112,7 @@ public class CouponValidate {
         return true;
     }
 
-    private static boolean couponTimeCheck(KXResult<?> message, Coupon coupon, Date issueStartTime, Date issueEndTime, String target) {
+    private static boolean couponTimeCheck(TCResult<?> message, Coupon coupon, Date issueStartTime, Date issueEndTime, String target) {
         // 优惠券发券开始时间为空 报错
         if (issueStartTime == null) {
             message.setErrorCode(TCResultCode.FIELD_NOT_ALLOWED_EMPTY, target + "发券开始时间");
@@ -152,7 +152,7 @@ public class CouponValidate {
     }
 
 
-    public static boolean validateForUpdate(Coupon coupon, KXResult<?> message) {
+    public static boolean validateForUpdate(Coupon coupon, TCResult<?> message) {
         if (isNull(message, Coupon.ID, coupon.getId())) {
             return false;
         }

@@ -930,7 +930,7 @@
         FOR UPDATE
     </select>
 
-    <select id="queryCoupon" resultMap="BaseResultMap" parameterType="com.yz.tc.req.CouponQueryVO">
+    <select id="queryCoupon" resultMap="BaseResultMap" parameterType="com.yz.tc.req.CouponPageVO">
         SELECT
         <choose>
             <when test="returnFields!=null">${returnFields}</when>

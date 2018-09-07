@@ -6,9 +6,9 @@ import com.yz.tc.dao.CouponMapper;
 import com.yz.tc.dao.ext.CouponExtMapper;
 import com.yz.tc.exception.CommonBizException;
 import com.yz.tc.model.Coupon;
-import com.yz.tc.req.CouponQueryVO;
+import com.yz.tc.req.CouponPageVO;
 import com.yz.tc.req.OperatorVO;
-import com.yz.tc.resp.QueryResult;
+import com.yz.tc.resp.PageBase;
 import com.yz.tc.resp.TCResultCode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -96,18 +96,18 @@ public class CouponBiz {
      * @version 1.0.0
      */
     @Transactional(readOnly = true)
-    public QueryResult<Coupon> queryCoupon(CouponQueryVO couponQuery) {
-        QueryResult<Coupon> queryResult = new QueryResult<Coupon>();
+    public PageBase<Coupon> queryCoupon(CouponPageVO couponQuery) {
+        PageBase<Coupon> pageBase = new PageBase<Coupon>();
         // 使用分页插件PageHelper实现分页功能
         PageHelper.startPage(couponQuery.getPageNo(), couponQuery.getPageSize());
         List<Coupon> couponList = couponMapper.queryCoupon(couponQuery);
         PageInfo<Coupon> pageInfo = new PageInfo<Coupon>(couponList);
-        queryResult.setPageNo(pageInfo.getPageNum());
-        queryResult.setPageSize(pageInfo.getPageSize());
-        queryResult.setTotalPages(pageInfo.getPages());
-        queryResult.setTotalRecords(pageInfo.getTotal());
-        queryResult.setRecords(couponList);
-        return queryResult;
+        pageBase.setPageNo(pageInfo.getPageNum());
+        pageBase.setPageSize(pageInfo.getPageSize());
+        pageBase.setTotalPages(pageInfo.getPages());
+        pageBase.setTotalRecords(pageInfo.getTotal());
+        pageBase.setRecords(couponList);
+        return pageBase;
     }
 
 }

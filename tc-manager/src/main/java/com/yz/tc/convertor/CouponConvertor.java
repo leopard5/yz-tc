@@ -2,10 +2,10 @@ package com.yz.tc.convertor;
 
 import com.yz.tc.model.Coupon;
 import com.yz.tc.model.CouponQuery;
-import com.yz.tc.req.CouponQueryVO;
+import com.yz.tc.req.CouponPageVO;
 import com.yz.tc.req.CouponVO;
 import com.yz.tc.resp.CouponDTO;
-import com.yz.tc.resp.QueryResult;
+import com.yz.tc.resp.PageBase;
 import org.springframework.cglib.beans.BeanCopier;
 
 import java.util.ArrayList;
@@ -15,7 +15,7 @@ public abstract class CouponConvertor {
 
     private static final BeanCopier beanCopierForCouponInfo = BeanCopier.create(Coupon.class, CouponDTO.class, false);
     private static final BeanCopier beanCopierForCoupon = BeanCopier.create(CouponVO.class, Coupon.class, false);
-    private static final BeanCopier beanCopierForCouponQuery = BeanCopier.create(CouponQueryVO.class, CouponQuery.class, false);
+    private static final BeanCopier beanCopierForCouponQuery = BeanCopier.create(CouponPageVO.class, CouponQuery.class, false);
 
     public static CouponDTO toCouponInfo(Coupon coupon) {
         if (coupon == null) {
@@ -54,7 +54,7 @@ public abstract class CouponConvertor {
         return couponList;
     }
 
-    public static CouponQuery toCouponQuery(CouponQueryVO couponQueryReq) {
+    public static CouponQuery toCouponQuery(CouponPageVO couponQueryReq) {
         if (couponQueryReq == null) {
             return null;
         }
@@ -63,13 +63,13 @@ public abstract class CouponConvertor {
         return couponQuery;
     }
 
-    public static QueryResult<CouponDTO> toQueryResultInfo(QueryResult<Coupon> queryResult) {
-        QueryResult<CouponDTO> queryResultInfo = new QueryResult<CouponDTO>();
-        queryResultInfo.setPageNo(queryResult.getPageNo());
-        queryResultInfo.setPageSize(queryResult.getPageSize());
-        queryResultInfo.setTotalPages(queryResult.getTotalPages());
-        queryResultInfo.setTotalRecords(queryResult.getTotalRecords());
-        queryResultInfo.setRecords(toCouponInfoList(queryResult.getRecords()));
-        return queryResultInfo;
+    public static PageBase<CouponDTO> toQueryResultInfo(PageBase<Coupon> pageBase) {
+        PageBase<CouponDTO> pageBaseInfo = new PageBase<CouponDTO>();
+        pageBaseInfo.setPageNo(pageBase.getPageNo());
+        pageBaseInfo.setPageSize(pageBase.getPageSize());
+        pageBaseInfo.setTotalPages(pageBase.getTotalPages());
+        pageBaseInfo.setTotalRecords(pageBase.getTotalRecords());
+        pageBaseInfo.setRecords(toCouponInfoList(pageBase.getRecords()));
+        return pageBaseInfo;
     }
 }

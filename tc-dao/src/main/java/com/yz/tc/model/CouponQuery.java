@@ -1,5 +1,7 @@
 package com.yz.tc.model;
 
+import com.yz.tc.model.base.Query;
+
 import java.math.BigDecimal;
 import java.util.Date;
 

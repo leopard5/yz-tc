@@ -3,7 +3,7 @@ package com.yz.tc.test;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
 import com.alibaba.fastjson.serializer.SerializerFeature;
-import com.yz.tc.resp.KXResult;
+import com.yz.tc.resp.TCResult;
 import com.yz.tc.resp.TCResultCode;
 import com.yz.tc.util.FileUtil;
 
@@ -18,7 +18,7 @@ public class TestBase {
         System.out.println(name + "=======" + msg);
     }
 
-    public void printAndAssertEquals(KXResult<?> result) {
+    public void printAndAssertEquals(TCResult<?> result) {
         System.out.println("--------------------打印开始--------------------");
         System.out.println(JSON.toJSONString(result, SerializerFeature.WriteMapNullValue));
         assertEquals(SUCCESS_FLAG, result.getCode());
@@ -26,7 +26,7 @@ public class TestBase {
     }
 
 
-    public void printAndAssertEquals(KXResult<?> result, TCResultCode errorCode) {
+    public void printAndAssertEquals(TCResult<?> result, TCResultCode errorCode) {
         System.out.println("--------------------打印开始--------------------");
         System.out.println(JSON.toJSONString(result, SerializerFeature.WriteMapNullValue));
         assertEquals(errorCode.getCode(), result.getCode());

@@ -7,11 +7,11 @@ import java.util.regex.Pattern;
 import com.yz.tc.resp.TCResultCode;
 import org.springframework.util.StringUtils;
 
-import com.yz.tc.resp.KXResult;
+import com.yz.tc.resp.TCResult;
 
 public abstract class ValidationUtil {
 
-	public static boolean isNullOrEmpty(KXResult<?> message, String fieldName, String value) {
+	public static boolean isNullOrEmpty(TCResult<?> message, String fieldName, String value) {
 		if (hasText(value)) {
 			return false;
 		}
@@ -19,12 +19,12 @@ public abstract class ValidationUtil {
 		return true;
 	}
 
-	public static boolean isNotNullOrEmpty(KXResult<?> message, String fieldName, String value) {
+	public static boolean isNotNullOrEmpty(TCResult<?> message, String fieldName, String value) {
 		return !isNullOrEmpty(message, fieldName, value);
 	}
 
 	public static boolean isEmptyOrLessThan(
-			KXResult<?> message,
+			TCResult<?> message,
 			String fieldName,
 			String value,
 			int minLength) {
@@ -32,7 +32,7 @@ public abstract class ValidationUtil {
 	}
 
 	public static boolean isLessThan(
-			KXResult<?> message,
+			TCResult<?> message,
 			String fieldName,
 			String value,
 			int minLength) {
@@ -40,7 +40,7 @@ public abstract class ValidationUtil {
 	}
 
 	public static boolean isLessThan(
-			KXResult<?> message,
+			TCResult<?> message,
 			String fieldName,
 			BigDecimal value,
 			double minValue) {
@@ -56,7 +56,7 @@ public abstract class ValidationUtil {
 	}
 
 	public static boolean isMoreThan(
-			KXResult<?> message,
+			TCResult<?> message,
 			String fieldName,
 			BigDecimal value,
 			double maxValue) {
@@ -73,7 +73,7 @@ public abstract class ValidationUtil {
 	}
 
 	public static boolean isLessThan(
-			KXResult<?> message,
+			TCResult<?> message,
 			String fieldName,
 			Integer value,
 			int minValue) {
@@ -90,7 +90,7 @@ public abstract class ValidationUtil {
 	}
 
 	public static boolean isMoreThan(
-			KXResult<?> message,
+			TCResult<?> message,
 			String fieldName,
 			Integer value,
 			int maxValue) {
@@ -107,7 +107,7 @@ public abstract class ValidationUtil {
 	}
 
 	public static boolean isLessThan(
-			KXResult<?> message,
+			TCResult<?> message,
 			String fieldName,
 			Long value,
 			long minValue) {
@@ -124,7 +124,7 @@ public abstract class ValidationUtil {
 	}
 
 	public static boolean isMoreThan(
-			KXResult<?> message,
+			TCResult<?> message,
 			String fieldName,
 			Long value,
 			long maxValue) {
@@ -141,7 +141,7 @@ public abstract class ValidationUtil {
 	}
 
 	public static boolean isEmptyOrMoreThan(
-			KXResult<?> message,
+			TCResult<?> message,
 			String fieldName,
 			String value,
 			int maxLength) {
@@ -149,7 +149,7 @@ public abstract class ValidationUtil {
 	}
 
 	public static boolean isMoreThan(
-			KXResult<?> message,
+			TCResult<?> message,
 			String fieldName,
 			String value,
 			int maxLength) {
@@ -157,7 +157,7 @@ public abstract class ValidationUtil {
 	}
 
 	public static boolean isEmptyOrNotInRange(
-			KXResult<?> message,
+			TCResult<?> message,
 			String fieldName,
 			String value,
 			int minLength,
@@ -166,7 +166,7 @@ public abstract class ValidationUtil {
 	}
 
 	public static boolean isNotInRange(
-			KXResult<?> message,
+			TCResult<?> message,
 			String fieldName,
 			String value,
 			int minLength,
@@ -175,7 +175,7 @@ public abstract class ValidationUtil {
 	}
 
 	public static boolean validate(
-			KXResult<?> message,
+			TCResult<?> message,
 			String fieldName,
 			String value,
 			int minLength,
@@ -185,7 +185,7 @@ public abstract class ValidationUtil {
 	}
 
 	public static boolean validate(
-			KXResult<?> message,
+			TCResult<?> message,
 			String fieldName,
 			Boolean isAllowEmpty,
 			String value,
@@ -227,7 +227,7 @@ public abstract class ValidationUtil {
 	 * @throws null
 	 * @author qiyazhong
 	 */
-	public static boolean isValidEmail(KXResult<?> message, String fieldName, String value) {
+	public static boolean isValidEmail(TCResult<?> message, String fieldName, String value) {
 
 		if (isNullOrEmpty(message, fieldName, value)) {
 			return false;
@@ -251,7 +251,7 @@ public abstract class ValidationUtil {
 	 * @throws null
 	 * @author qiyazhong
 	 */
-	public static boolean isValidMobile(KXResult<?> message, String fieldName, String value) {
+	public static boolean isValidMobile(TCResult<?> message, String fieldName, String value) {
 		if (mobilePattern.matcher(value).matches()) {
 			return true;
 		}
@@ -271,7 +271,7 @@ public abstract class ValidationUtil {
 	 * @throws null
 	 * @author qiyazhong
 	 */
-	public static boolean isValidIDNumber(KXResult<?> message, String fieldName, String value) {
+	public static boolean isValidIDNumber(TCResult<?> message, String fieldName, String value) {
 		if (idNumPattern.matcher(value).matches()) {
 			return true;
 		}
@@ -289,7 +289,7 @@ public abstract class ValidationUtil {
 	 * @throws null
 	 * @author qiyazhong
 	 */
-	public static boolean isNull(KXResult<?> message, String fieldName, Object obj) {
+	public static boolean isNull(TCResult<?> message, String fieldName, Object obj) {
 		if (obj == null) {
 			message.setErrorCode(TCResultCode.FIELD_NOT_ALLOWED_EMPTY, fieldName);
 			return true;
@@ -307,7 +307,7 @@ public abstract class ValidationUtil {
 	 * @throws null
 	 * @author qiyazhong
 	 */
-	public static boolean isValidDate(KXResult<?> message, String fieldName, long dateInMs) {
+	public static boolean isValidDate(TCResult<?> message, String fieldName, long dateInMs) {
 		try {
 			if (dateInMs <= 0) {
 				message.setErrorCode(TCResultCode.FIELD_NOT_ALLOWED_EMPTY, fieldName);

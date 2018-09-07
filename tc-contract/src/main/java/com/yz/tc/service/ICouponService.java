@@ -1,11 +1,11 @@
 package com.yz.tc.service;
 
-import com.yz.tc.req.CouponQueryVO;
+import com.yz.tc.req.CouponPageVO;
 import com.yz.tc.req.CouponVO;
 import com.yz.tc.req.OperatorVO;
 import com.yz.tc.resp.CouponDTO;
-import com.yz.tc.resp.KXResult;
-import com.yz.tc.resp.QueryResult;
+import com.yz.tc.resp.TCResult;
+import com.yz.tc.resp.PageBase;
 
 public interface ICouponService {
 
@@ -17,7 +17,7 @@ public interface ICouponService {
      * @author yazhong.qi
      * @version 1.0.0
      */
-    KXResult<Integer> deleteCoupon(OperatorVO userVo);
+    TCResult<Integer> deleteCoupon(OperatorVO userVo);
 
     /**
      * 创建优惠券
@@ -27,7 +27,7 @@ public interface ICouponService {
      * @author yazhong.qi
      * @version 1.0.0
      */
-    KXResult<Integer> createCoupon(CouponVO couponReq);
+    TCResult<Integer> createCoupon(CouponVO couponReq);
 
     /**
      * 更新优惠券
@@ -37,7 +37,7 @@ public interface ICouponService {
      * @author yazhong.qi
      * @version 1.0.0
      */
-    KXResult<Integer> updateCoupon(CouponVO couponReq);
+    TCResult<Integer> updateCoupon(CouponVO couponReq);
 
     /**
      * 分页查询优惠券
@@ -45,6 +45,6 @@ public interface ICouponService {
      * @param couponQueryReq
      * @return
      */
-    KXResult<QueryResult<CouponDTO>> queryCoupon(CouponQueryVO couponQueryReq);
+    TCResult<PageBase<CouponDTO>> queryCoupon(CouponPageVO couponQueryReq);
 
 }

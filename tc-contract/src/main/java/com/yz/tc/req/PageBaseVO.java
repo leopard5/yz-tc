@@ -6,7 +6,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 
 @ApiModel("分页输入参数基类")
-public class QueryVO implements Serializable {
+public class PageBaseVO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

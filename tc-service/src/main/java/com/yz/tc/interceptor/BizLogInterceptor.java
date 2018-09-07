@@ -2,7 +2,7 @@ package com.yz.tc.interceptor;
 
 import com.alibaba.fastjson.JSON;
 import com.yz.tc.exception.CommonBizException;
-import com.yz.tc.resp.KXResult;
+import com.yz.tc.resp.TCResult;
 import com.yz.tc.resp.TCResultCode;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -45,14 +45,14 @@ public class BizLogInterceptor {
         } catch (CommonBizException e) {
             logger.warn(e.getMessage() + " Input parameters=" + JSON.toJSONString(args), e);
 
-            KXResult<Object> r = KXResult.newSuccess();
+            TCResult<Object> r = TCResult.newSuccess();
             r.setErrorCode(e.getMmcResultCode());
             r.setMessage(e.getErrorMsg());
             ret = r;
         } catch (Exception e) {
             logger.error(e.getMessage() + " Input parameters=" + JSON.toJSONString(args), e);
 
-            KXResult<Object> r = KXResult.newSuccess();
+            TCResult<Object> r = TCResult.newSuccess();
             r.setErrorCode(TCResultCode.SYS_ERROR);
             ret = r;
         }

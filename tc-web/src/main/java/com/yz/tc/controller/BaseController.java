@@ -1,7 +1,7 @@
 package com.yz.tc.controller;
 
 import com.alibaba.fastjson.JSON;
-import com.yz.tc.resp.KXResult;
+import com.yz.tc.resp.TCResult;
 import com.yz.tc.resp.TCResultCode;
 import com.yz.tc.vo.UserVo;
 import org.slf4j.Logger;
@@ -36,7 +36,7 @@ public class BaseController {
      * @param result
      * @return
      */
-    protected UserVo getUser(KXResult<?> result) {
+    protected UserVo getUser(TCResult<?> result) {
         Object object = session.getAttribute(userKey);
         UserVo userVo = null;
 
@@ -53,7 +53,7 @@ public class BaseController {
      * @param result
      * @return
      */
-    protected void getBaseReq(KXResult<?> result) {
+    protected void getBaseReq(TCResult<?> result) {
         try {
             UserVo userVo = this.getUser(result);
             if (null == userVo) {

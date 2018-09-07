@@ -1,4 +1,4 @@
-package com.yz.tc.model;
+package com.yz.tc.model.base;
 
 import java.io.Serializable;
 
