@@ -8,31 +8,31 @@ import java.util.List;
 
 @ApiModel("分页输出结果基类")
 public class PageQuery<E> implements Serializable {
-    private static final long serialVersionUID = 8189778548880809030L;
+    private static final long serialVersionUID = 1572680453817033022L;
 
     /**
      * @Fields pageNo : 第几页
      */
     @ApiModelProperty("第几页")
-    private int pageNo;
+    private Integer pageNo;
 
     /**
      * @Fields pageSize : 每页多少数据
      */
     @ApiModelProperty("每页多少数据")
-    private int pageSize;
+    private Integer pageSize;
 
     /**
      * @Fields totalPages : 总页数
      */
     @ApiModelProperty("总页数")
-    private int totalPages;
+    private Integer totalPages;
 
     /**
      * @Fields totalRecords : 总记录数
      */
     @ApiModelProperty("总记录数")
-    private long totalRecords;
+    private Long totalRecords;
 
     /**
      * @Fields records : 返回记录列表
@@ -40,36 +40,35 @@ public class PageQuery<E> implements Serializable {
     @ApiModelProperty("返回记录列表")
     private List<E> records;
 
-
-    public int getPageNo() {
+    public Integer getPageNo() {
         return pageNo;
     }
 
-    public void setPageNo(int pageNo) {
+    public void setPageNo(Integer pageNo) {
         this.pageNo = pageNo;
     }
 
-    public int getPageSize() {
+    public Integer getPageSize() {
         return pageSize;
     }
 
-    public void setPageSize(int pageSize) {
+    public void setPageSize(Integer pageSize) {
         this.pageSize = pageSize;
     }
 
-    public int getTotalPages() {
+    public Integer getTotalPages() {
         return totalPages;
     }
 
-    public void setTotalPages(int totalPages) {
+    public void setTotalPages(Integer totalPages) {
         this.totalPages = totalPages;
     }
 
-    public long getTotalRecords() {
+    public Long getTotalRecords() {
         return totalRecords;
     }
 
-    public void setTotalRecords(long totalRecords) {
+    public void setTotalRecords(Long totalRecords) {
         this.totalRecords = totalRecords;
     }
 

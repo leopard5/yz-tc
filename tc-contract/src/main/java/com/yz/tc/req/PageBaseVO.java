@@ -14,13 +14,13 @@ public class PageBaseVO implements Serializable {
      * @Fields pageNo : 第几页
      */
     @ApiModelProperty("第几页")
-    private int pageNo = 1;
+    private Integer pageNo = 1;
 
     /**
      * @Fields pageSize : 每页多少数据
      */
     @ApiModelProperty("每页多少数据")
-    private int pageSize = 10;
+    private Integer pageSize = 10;
 
     /**
      * @Fields order : 哪个字段排序
@@ -40,20 +40,19 @@ public class PageBaseVO implements Serializable {
     @ApiModelProperty("指定返回哪些字段")
     private String returnFields;
 
-
-    public int getPageNo() {
+    public Integer getPageNo() {
         return pageNo;
     }
 
-    public void setPageNo(int pageNo) {
+    public void setPageNo(Integer pageNo) {
         this.pageNo = pageNo;
     }
 
-    public int getPageSize() {
+    public Integer getPageSize() {
         return pageSize;
     }
 
-    public void setPageSize(int pageSize) {
+    public void setPageSize(Integer pageSize) {
         this.pageSize = pageSize;
     }
 

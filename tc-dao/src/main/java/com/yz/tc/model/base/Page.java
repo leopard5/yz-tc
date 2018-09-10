@@ -2,48 +2,51 @@ package com.yz.tc.model.base;
 
 import java.io.Serializable;
 
+/**
+ * @author yazhong
+ */
 public class Page implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * @Fields pageNo : 第几页
+     * pageNo : 第几页
      */
-    private int pageNo = 1;
+    private Integer pageNo = 1;
 
     /**
-     * @Fields pageSize : 每页多少数据
+     * pageSize : 每页多少数据
      */
-    private int pageSize = 10;
+    private Integer pageSize = 10;
 
     /**
-     * @Fields order : 哪个字段排序
+     * order : 哪个字段排序
      */
     private String order;
 
     /**
-     * @Fields orderBy : 升序or降序
+     * orderBy : 升序or降序
      */
     private String orderBy;
 
     /**
-     * @Fields returnFields : 指定返回哪些字段
+     * returnFields : 指定返回哪些字段
      */
     private String returnFields;
 
-    public int getPageNo() {
+    public Integer getPageNo() {
         return pageNo;
     }
 
-    public void setPageNo(int pageNo) {
+    public void setPageNo(Integer pageNo) {
         this.pageNo = pageNo;
     }
 
-    public int getPageSize() {
+    public Integer getPageSize() {
         return pageSize;
     }
 
-    public void setPageSize(int pageSize) {
+    public void setPageSize(Integer pageSize) {
         this.pageSize = pageSize;
     }
 
