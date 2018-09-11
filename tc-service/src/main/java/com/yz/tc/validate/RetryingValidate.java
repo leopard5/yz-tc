@@ -65,6 +65,11 @@ public class RetryingValidate {
         return true;
     }
 
+    public static void validate(Retrying retrying, TCResult<?> message) {
+        validateForCreate(retrying, message);
+        LogicValidate.retryingValidate(retrying, message);
+    }
+
     public static boolean validateForUpdate(Retrying retrying, TCResult<?> message) {
         if (isNull(message, Retrying.ID, retrying.getId())) {
             return false;

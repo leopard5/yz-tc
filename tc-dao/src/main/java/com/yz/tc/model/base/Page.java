@@ -1,10 +1,15 @@
 package com.yz.tc.model.base;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.io.Serializable;
 
 /**
  * @author yazhong
  */
+@Getter
+@Setter
 public class Page implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -33,44 +38,4 @@ public class Page implements Serializable {
      * returnFields : 指定返回哪些字段
      */
     private String returnFields;
-
-    public Integer getPageNo() {
-        return pageNo;
-    }
-
-    public void setPageNo(Integer pageNo) {
-        this.pageNo = pageNo;
-    }
-
-    public Integer getPageSize() {
-        return pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public String getOrder() {
-        return order;
-    }
-
-    public void setOrder(String order) {
-        this.order = order;
-    }
-
-    public String getOrderBy() {
-        return orderBy;
-    }
-
-    public void setOrderBy(String orderBy) {
-        this.orderBy = orderBy;
-    }
-
-    public String getReturnFields() {
-        return returnFields;
-    }
-
-    public void setReturnFields(String returnFields) {
-        this.returnFields = returnFields;
-    }
 }

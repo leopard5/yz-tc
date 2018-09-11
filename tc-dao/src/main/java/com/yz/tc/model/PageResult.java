@@ -1,8 +1,13 @@
 package com.yz.tc.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.io.Serializable;
 import java.util.List;
 
+@Getter
+@Setter
 public class PageResult<E> implements Serializable {
     private static final long serialVersionUID = 8189778548880809030L;
 
@@ -30,44 +35,4 @@ public class PageResult<E> implements Serializable {
      * @Fields records : 返回记录列表
      */
     private List<E> records;
-
-    public Integer getPageNo() {
-        return pageNo;
-    }
-
-    public void setPageNo(Integer pageNo) {
-        this.pageNo = pageNo;
-    }
-
-    public Integer getPageSize() {
-        return pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public Integer getTotalPages() {
-        return totalPages;
-    }
-
-    public void setTotalPages(Integer totalPages) {
-        this.totalPages = totalPages;
-    }
-
-    public Long getTotalRecords() {
-        return totalRecords;
-    }
-
-    public void setTotalRecords(Long totalRecords) {
-        this.totalRecords = totalRecords;
-    }
-
-    public List<E> getRecords() {
-        return records;
-    }
-
-    public void setRecords(List<E> records) {
-        this.records = records;
-    }
 }

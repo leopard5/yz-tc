@@ -27,6 +27,7 @@ public abstract class RetryingConvertor {
     public static Retrying toRetrying(RetryingVO source) {
         Retrying target = new Retrying();
         beanCopierForRetrying.copy(source, target, null);
+        RetryingCollectionConvertor.toCollection(source, target);
         return target;
     }
 

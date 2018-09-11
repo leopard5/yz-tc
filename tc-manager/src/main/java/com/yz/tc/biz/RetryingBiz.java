@@ -61,6 +61,7 @@ public class RetryingBiz {
      */
     @Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.DEFAULT, rollbackFor = Exception.class)
     public Long createRetrying(Retrying retrying) {
+        settingDefaultFields(retrying);
         // TODO: Describe business logic and implement it
         retryingMapper.insertSelective(retrying);
         return retrying.getId();
@@ -136,6 +137,10 @@ public class RetryingBiz {
         queryResult.setTotalRecords(pageInfo.getTotal());
         queryResult.setRecords(retryingList);
         return queryResult;
+    }
+
+    private void settingDefaultFields(Retrying vo){
+
     }
 
 }
