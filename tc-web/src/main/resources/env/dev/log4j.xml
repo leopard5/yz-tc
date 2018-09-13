@@ -4,7 +4,7 @@
 	<!-- 修改项目名称 -->
 	<appender name="infoLog" class="org.apache.log4j.DailyRollingFileAppender">
 		<param name="Encoding" value="UTF-8" />
-		<param name="File" value="/logs/mmc-web/info.log"/>
+		<param name="File" value="/Users/yazhong/logs/tc-webb/info.log"/>
 		<param name="DatePattern" value="'.'yyyy-MM-dd'.log'" />
 		<layout class="org.apache.log4j.PatternLayout">
 			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} [%p]-[%t]-[%l] %m%n" />
@@ -18,7 +18,7 @@
 	</appender>
 	<appender name="warnLog" class="org.apache.log4j.DailyRollingFileAppender">
 		<param name="Encoding" value="UTF-8" />
-		<param name="File" value="/logs/mmc-web/warn.log"/>
+		<param name="File" value="/Users/yazhong/logs/tc-webb/warn.log"/>
 		<param name="DatePattern" value="'.'yyyy-MM-dd'.log'" />
 		<layout class="org.apache.log4j.PatternLayout">
 			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} [%p]-[%t]-[%l] %m%n" />
@@ -32,7 +32,7 @@
 	</appender>
 	<appender name="errorLog" class="org.apache.log4j.DailyRollingFileAppender">
 		<param name="Encoding" value="UTF-8" />
-		<param name="File" value="/logs/mmc-web/error.log"/>
+		<param name="File" value="/Users/yazhong/logs/tc-webb/error.log"/>
 		<param name="DatePattern" value="'.'yyyy-MM-dd'.log'" />
 		<layout class="org.apache.log4j.PatternLayout">
 			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} [%p]-[%t]-[%l] %m%n" />

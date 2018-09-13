@@ -19,47 +19,47 @@ import static com.yz.tc.util.ValidationUtil.*;
 public class RetryingValidate {
 
     public static boolean validateForCreate(Retrying retrying, TCResult<?> message) {
-        if (isEmptyOrMoreThan(message, Retrying.BATCH_NO, retrying.getBatchNo(), 36)) {
+        if (isEmptyOrMoreThan(message, Retrying.C_BATCH_NO, retrying.getBatchNo(), 36)) {
             return false;
         }
-        if (isEmptyOrMoreThan(message, Retrying.ERROR_CODE, retrying.getErrorCode(), 10)) {
+        if (isEmptyOrMoreThan(message, Retrying.C_ERROR_CODE, retrying.getErrorCode(), 10)) {
             return false;
         }
-        if (isEmptyOrMoreThan(message, Retrying.ERROR_MSG, retrying.getErrorMsg(), 100)) {
-            return false;
-        }
-
-        if (isNull(message, Retrying.DELETE_FLAG, retrying.getDeleteFlag())) {
+        if (isEmptyOrMoreThan(message, Retrying.C_ERROR_MSG, retrying.getErrorMsg(), 100)) {
             return false;
         }
 
-        if (isNull(message, Retrying.DOING_TYPE, retrying.getDoingType())) {
-            return false;
-        }
-        if (isEmptyOrMoreThan(message, Retrying.DOING_TYPE_NAME, retrying.getDoingTypeName(), 20)) {
+        if (isNull(message, Retrying.C_DELETE_FLAG, retrying.getDeleteFlag())) {
             return false;
         }
 
-        if (isNull(message, Retrying.FINAL_RESULT, retrying.getFinalResult())) {
+        if (isNull(message, Retrying.C_DOING_TYPE, retrying.getDoingType())) {
+            return false;
+        }
+        if (isEmptyOrMoreThan(message, Retrying.C_DOING_TYPE_NAME, retrying.getDoingTypeName(), 20)) {
             return false;
         }
 
-        if (isNull(message, Retrying.RETRY_COUNT, retrying.getRetryCount())) {
+        if (isNull(message, Retrying.C_FINAL_RESULT, retrying.getFinalResult())) {
             return false;
         }
-        if (isEmptyOrMoreThan(message, Retrying.TRADE_SCENE_NO, retrying.getTradeSceneNo(), 10)) {
+
+        if (isNull(message, Retrying.C_RETRY_COUNT, retrying.getRetryCount())) {
             return false;
         }
-        if (isEmptyOrMoreThan(message, Retrying.CREATE_USER, retrying.getCreateUser(), 64)) {
+        if (isEmptyOrMoreThan(message, Retrying.C_TRADE_SCENE_NO, retrying.getTradeSceneNo(), 10)) {
             return false;
         }
-        if (isEmptyOrMoreThan(message, Retrying.CREATE_USER_NAME, retrying.getCreateUserName(), 64)) {
+        if (isEmptyOrMoreThan(message, Retrying.C_CREATE_USER, retrying.getCreateUser(), 64)) {
             return false;
         }
-        if (isEmptyOrMoreThan(message, Retrying.UPDATE_USER, retrying.getUpdateUser(), 64)) {
+        if (isEmptyOrMoreThan(message, Retrying.C_CREATE_USER_NAME, retrying.getCreateUserName(), 64)) {
             return false;
         }
-        if (isEmptyOrMoreThan(message, Retrying.UPDATE_USER_NAME, retrying.getUpdateUserName(), 64)) {
+        if (isEmptyOrMoreThan(message, Retrying.C_UPDATE_USER, retrying.getUpdateUser(), 64)) {
+            return false;
+        }
+        if (isEmptyOrMoreThan(message, Retrying.C_UPDATE_USER_NAME, retrying.getUpdateUserName(), 64)) {
             return false;
         }
         return true;
@@ -71,34 +71,34 @@ public class RetryingValidate {
     }
 
     public static boolean validateForUpdate(Retrying retrying, TCResult<?> message) {
-        if (isNull(message, Retrying.ID, retrying.getId())) {
+        if (isNull(message, Retrying.C_ID, retrying.getId())) {
             return false;
         }
-        if (isMoreThan(message, Retrying.BATCH_NO, retrying.getBatchNo(), 36)) {
+        if (isMoreThan(message, Retrying.C_BATCH_NO, retrying.getBatchNo(), 36)) {
             return false;
         }
-        if (isMoreThan(message, Retrying.ERROR_CODE, retrying.getErrorCode(), 10)) {
+        if (isMoreThan(message, Retrying.C_ERROR_CODE, retrying.getErrorCode(), 10)) {
             return false;
         }
-        if (isMoreThan(message, Retrying.ERROR_MSG, retrying.getErrorMsg(), 100)) {
+        if (isMoreThan(message, Retrying.C_ERROR_MSG, retrying.getErrorMsg(), 100)) {
             return false;
         }
-        if (isMoreThan(message, Retrying.DOING_TYPE_NAME, retrying.getDoingTypeName(), 20)) {
+        if (isMoreThan(message, Retrying.C_DOING_TYPE_NAME, retrying.getDoingTypeName(), 20)) {
             return false;
         }
-        if (isMoreThan(message, Retrying.TRADE_SCENE_NO, retrying.getTradeSceneNo(), 10)) {
+        if (isMoreThan(message, Retrying.C_TRADE_SCENE_NO, retrying.getTradeSceneNo(), 10)) {
             return false;
         }
-        if (isMoreThan(message, Retrying.CREATE_USER, retrying.getCreateUser(), 64)) {
+        if (isMoreThan(message, Retrying.C_CREATE_USER, retrying.getCreateUser(), 64)) {
             return false;
         }
-        if (isMoreThan(message, Retrying.CREATE_USER_NAME, retrying.getCreateUserName(), 64)) {
+        if (isMoreThan(message, Retrying.C_CREATE_USER_NAME, retrying.getCreateUserName(), 64)) {
             return false;
         }
-        if (isMoreThan(message, Retrying.UPDATE_USER, retrying.getUpdateUser(), 64)) {
+        if (isMoreThan(message, Retrying.C_UPDATE_USER, retrying.getUpdateUser(), 64)) {
             return false;
         }
-        if (isMoreThan(message, Retrying.UPDATE_USER_NAME, retrying.getUpdateUserName(), 64)) {
+        if (isMoreThan(message, Retrying.C_UPDATE_USER_NAME, retrying.getUpdateUserName(), 64)) {
             return false;
         }
         return true;
