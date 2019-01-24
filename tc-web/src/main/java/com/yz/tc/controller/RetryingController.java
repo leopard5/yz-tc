@@ -18,10 +18,11 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
+
 @RequestMapping("retrying")
 @RestController
 @Api(value = "retrying", description = "重试补偿管理接口")
-public class RetryingController extends BaseController {
+public class RetryingController {
     private final Logger logger = LoggerFactory.getLogger(RetryingController.class);
 
     @Autowired
