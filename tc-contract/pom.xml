@@ -7,7 +7,6 @@
 	<version>1.0.0.RELEASE</version>
 	
 	<dependencies>
-        <!-- swagger -->
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
