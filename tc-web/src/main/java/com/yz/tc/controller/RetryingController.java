@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
-
 @RequestMapping("retrying")
 @RestController
 @Api(value = "retrying", description = "重试补偿管理接口")

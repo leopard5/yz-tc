@@ -1,0 +1,5 @@
+server:
+  port: 9001
+
+logging:
+  config: classpath:log4j2-test.xml
