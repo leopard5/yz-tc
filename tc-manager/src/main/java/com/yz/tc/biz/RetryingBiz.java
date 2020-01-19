@@ -3,18 +3,20 @@ package com.yz.tc.biz;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.yz.tc.dao.RetryingMapper;
+import com.yz.tc.dao.TcRetryingMapper;
 import com.yz.tc.model.Retrying;
+import com.yz.tc.model.TcRetrying;
 import com.yz.tc.req.OperatorVO;
 import com.yz.tc.req.RetryingListPageVO;
 import com.yz.tc.resp.PageQuery;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
 
@@ -33,8 +35,10 @@ import java.util.List;
 public class RetryingBiz {
     private final Logger logger = LoggerFactory.getLogger(RetryingBiz.class);
 
-    @Autowired
-    RetryingMapper retryingMapper;
+    @Resource
+    private RetryingMapper retryingMapper;
+    @Resource
+    private TcRetryingMapper tcRetryingMapper;
 
     /**
      * 逻辑删除重试补偿
@@ -60,10 +64,10 @@ public class RetryingBiz {
      * @version 1.0.0
      */
     @Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.DEFAULT, rollbackFor = Exception.class)
-    public Long createRetrying(Retrying retrying) {
-        settingDefaultFields(retrying);
+    public Long createRetrying(TcRetrying retrying) {
         // TODO: Describe business logic and implement it
-        retryingMapper.insertSelective(retrying);
+
+        tcRetryingMapper.insertSelective(retrying);
         return retrying.getId();
     }
 
@@ -97,7 +101,7 @@ public class RetryingBiz {
             // TODO：这里请写清楚
         }
         // TODO: Describe business logic and implement it
-        result = retryingMapper.updateByPrimaryKeySelective(retrying);
+//        result = retryingMapper.updateByPrimaryKeySelective(retrying);
         return result;
     }
 
@@ -110,9 +114,9 @@ public class RetryingBiz {
      * @version 1.0.0
      */
     @Transactional(readOnly = true)
-    public Retrying getRetrying(Long id) {
+    public TcRetrying getRetrying(Long id) {
         // TODO: Describe business logic and implement it
-        Retrying retrying = retryingMapper.selectByPrimaryKey(id);
+        TcRetrying retrying = tcRetryingMapper.selectByPrimaryKey(id);
         return retrying;
     }
 
@@ -137,10 +141,6 @@ public class RetryingBiz {
         queryResult.setTotalRecords(pageInfo.getTotal());
         queryResult.setRecords(retryingList);
         return queryResult;
-    }
-
-    private void settingDefaultFields(Retrying vo){
-
     }
 
 }

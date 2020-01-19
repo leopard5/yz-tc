@@ -28,7 +28,7 @@
         <commons-io.version>2.5</commons-io.version>
         <commons-codec.version>1.10</commons-codec.version>
         <springfox.version>2.9.2</springfox.version>
-        <mybatis-spring-boot-starter.version>2.0.0</mybatis-spring-boot-starter.version>
+        <mybatis-spring-boot-starter.version>2.0.1</mybatis-spring-boot-starter.version>
         <mybatis-generator-maven-plugin.version>1.3.5</mybatis-generator-maven-plugin.version>
         <java-jwt.version>3.1.0</java-jwt.version>
         <orika.version>1.5.0</orika.version>
@@ -36,7 +36,7 @@
         <mybatis-typehandlers-jsr310.version>1.0.2</mybatis-typehandlers-jsr310.version>
         <jackson-datatype.version>2.8.7</jackson-datatype.version>
         <pagehelper-spring-boot-starter.version>1.2.10</pagehelper-spring-boot-starter.version>
-        <tkmybatis-pagehelper-spring-boot-starter.version>2.1.4</tkmybatis-pagehelper-spring-boot-starter.version>
+        <tkmybatis-pagehelper-spring-boot-starter.version>2.1.5</tkmybatis-pagehelper-spring-boot-starter.version>
         <reflections.version>0.9.11</reflections.version>
         <spring-boot-admin.version>1.5.4</spring-boot-admin.version>
         <lombok.version>1.18.4</lombok.version>
@@ -182,18 +182,28 @@
                 <artifactId>fastjson</artifactId>
                 <version>${fastjson.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-loader</artifactId>
+                <version>2.1.2.RELEASE</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-loader-tools</artifactId>
+                <version>2.1.2.RELEASE</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
     <distributionManagement>
         <repository>
             <id>thirdparty</id>
-            <name>kxtx Releases</name>
+            <name>yz Releases</name>
             <url>http://192.168.1.180:8091/nexus/content/repositories/thirdparty</url>
         </repository>
         <snapshotRepository>
             <id>thirdparty</id>
-            <name>kxtx Releases</name>
+            <name>yz Releases</name>
             <url>http://192.168.1.180:8091/nexus/content/repositories/thirdparty</url>
         </snapshotRepository>
     </distributionManagement>

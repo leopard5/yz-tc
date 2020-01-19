@@ -3,7 +3,7 @@ package com.yz.tc.constant;
 /**
  * @author yazhong
  */
-public class RedisConsts {
+public abstract class RedisConsts {
     private RedisConsts(){}
 
     public static final String REDIS_DELIMETER = ":";

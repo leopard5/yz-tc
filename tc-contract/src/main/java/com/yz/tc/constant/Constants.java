@@ -1,6 +1,6 @@
 package com.yz.tc.constant;
 
-public class Constants {
+public abstract class Constants {
     public static final byte VALID = 1;
     public static final byte INVALID = 0;
     public static final Integer EXCEL_LARGEST_NUMBER = 50000;

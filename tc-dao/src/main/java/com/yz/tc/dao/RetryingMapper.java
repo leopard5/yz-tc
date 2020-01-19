@@ -1,13 +1,15 @@
 package com.yz.tc.dao;
 
 import com.yz.tc.model.Retrying;
-import com.yz.tc.model.RetryingExample;
 import com.yz.tc.req.RetryingListPageVO;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.Date;
 import java.util.List;
 
+/**
+ * @author yazhong.qi
+ */
 public interface RetryingMapper {
 
     int logicalDeleteByPrimaryKey(

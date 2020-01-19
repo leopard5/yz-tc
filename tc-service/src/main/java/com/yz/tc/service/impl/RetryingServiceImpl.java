@@ -68,7 +68,7 @@ public class RetryingServiceImpl implements IRetryingService {
         if (!validateForCreate(retrying, result)) {
             return result;
         }
-        result.setDataMap(retryingBiz.createRetrying(retrying));
+//        result.setDataMap(retryingBiz.createRetrying(retrying));
         return result;
     }
 
@@ -117,9 +117,9 @@ public class RetryingServiceImpl implements IRetryingService {
     @Override
     public TCResult<RetryingDTO> getRetrying(Long id) {
         TCResult<RetryingDTO> result = TCResult.newSuccess();
-        Retrying retrying = retryingBiz.getRetrying(id);
-        RetryingDTO retryingODTO = RetryingConvertor.toRetryingDTO(retrying);
-        result.setDataMap(retryingODTO);
+//        Retrying retrying = retryingBiz.getRetrying(id);
+//        RetryingDTO retryingODTO = RetryingConvertor.toRetryingDTO(retrying);
+//        result.setDataMap(retryingODTO);
         return result;
     }
 

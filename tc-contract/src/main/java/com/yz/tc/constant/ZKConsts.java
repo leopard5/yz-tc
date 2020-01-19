@@ -1,4 +1,4 @@
 package com.yz.tc.constant;
 
-public class ZKConsts {
+public abstract class ZKConsts {
 }

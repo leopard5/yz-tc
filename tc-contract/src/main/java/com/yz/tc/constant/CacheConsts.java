@@ -1,4 +1,4 @@
 package com.yz.tc.constant;
 
-public class CacheConsts {
+public abstract class CacheConsts {
 }
